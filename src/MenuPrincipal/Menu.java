@@ -29,6 +29,7 @@ public class Menu extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
@@ -79,6 +80,12 @@ public class Menu extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sebas\\Downloads\\logg.png")); // NOI18N
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 178, 80, 30));
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("GAMERIA", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 0, 0));
+        jButton2.setText("crear cuenta");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 130, -1));
 
         jLabel1.setFont(new java.awt.Font("GAMERIA", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 255, 0));
@@ -277,6 +284,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
