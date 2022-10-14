@@ -4,17 +4,27 @@
  */
 package MenuPrincipal;
 
+import Juegos.CompraJuegos;
+import RegistroUsuario.UsuarioNuevo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sebas
  */
 public class Menu extends javax.swing.JFrame {
-
+    public static Menu menuprincipal;
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
+    }
+    
+     public static Menu getInstance(){
+        if(menuprincipal==null)
+            menuprincipal=new Menu();
+        return menuprincipal; 
     }
 
     /**
@@ -26,10 +36,10 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JTextField();
+        txtContras = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCrearCuenta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
@@ -63,29 +73,54 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setFont(new java.awt.Font("Gamejot", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("Usuario");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        txtUsuario.setFont(new java.awt.Font("Gamejot", 0, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        txtUsuario.setText("Usuario");
+        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtUsuarioMouseClicked(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 120, 30));
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 120, 30));
 
-        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
-        jPasswordField1.setText("jPasswordField1");
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 120, 30));
+        txtContras.setForeground(new java.awt.Color(204, 204, 204));
+        txtContras.setText("jPasswordField1");
+        txtContras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtContrasMouseClicked(evt);
+            }
+        });
+        getContentPane().add(txtContras, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 120, 30));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sebas\\Downloads\\logg.png")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 178, 80, 30));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setFont(new java.awt.Font("GAMERIA", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 0, 0));
-        jButton2.setText("crear cuenta");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 130, -1));
+        btnCrearCuenta.setBackground(new java.awt.Color(0, 0, 0));
+        btnCrearCuenta.setFont(new java.awt.Font("GAMERIA", 0, 14)); // NOI18N
+        btnCrearCuenta.setForeground(new java.awt.Color(255, 0, 0));
+        btnCrearCuenta.setText("crear cuenta");
+        btnCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCrearCuentaMouseClicked(evt);
+            }
+        });
+        btnCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearCuentaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 130, -1));
 
         jLabel1.setFont(new java.awt.Font("GAMERIA", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 255, 0));
@@ -133,6 +168,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sebas\\Downloads\\4727106.png")); // NOI18N
         jMenu5.setText("Pc");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
 
         jMenuItem2.setText("Deportes");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -223,6 +263,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
+        new CompraJuegos().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -243,48 +285,65 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lblTituloMouseEntered
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void txtUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMouseClicked
+    txtUsuario.setText("");
+    }//GEN-LAST:event_txtUsuarioMouseClicked
+
+    private void txtContrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContrasMouseClicked
+        // TODO add your handling code here:
+        txtContras.setText("");
+    }//GEN-LAST:event_txtContrasMouseClicked
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void btnCrearCuentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearCuentaMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnCrearCuentaMouseClicked
+
+    private void btnCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuentaActionPerformed
+        // TODO add your handling code here:
+        UsuarioNuevo interfaz= UsuarioNuevo.getInstance();
+        interfaz.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCrearCuentaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String usuario,contraseña;
+        usuario= txtUsuario.getText();
+        contraseña= txtContras.getText();
+        if(txtUsuario.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingresar nombre de usuario");
+        }else{
+        if(txtContras.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ingresar contraseña");
         }
-        //</editor-fold>
+        else {
+        if (usuario.equals("secc96")&& contraseña.equals("123")){
+            CompraJuegos acceso= new CompraJuegos();
+            acceso.setVisible(true);
+            this.setVisible(false);
+        } else{
+            JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA INCORRECTA");
+        }
+        } 
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrearCuenta;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -312,9 +371,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPasswordField txtContras;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
